@@ -23,3 +23,7 @@ jobs:
           cp ../target/*.jar .
 
           ls -larth
+
+      - name: docker images
+        run: |
+          docker images
