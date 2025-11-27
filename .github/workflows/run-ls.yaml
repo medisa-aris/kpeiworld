@@ -12,6 +12,7 @@ jobs:
 
       - name: Build Spring Boot JAR and prepare folder
         run: |
+          chmod +x mvnw
           ./mvnw clean package -Pproduction
 
           rm -rf kpeiworldapp
