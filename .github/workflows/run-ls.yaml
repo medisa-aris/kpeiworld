@@ -1,0 +1,14 @@
+name: LS on Jumpserver
+
+on:
+  push:
+
+jobs:
+  run-ls:
+    runs-on: self-hosted   # this makes it run on eks-jumpserver-01
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run LS
+        run: ls -larth
