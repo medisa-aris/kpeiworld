@@ -7,11 +7,18 @@ jobs:
   run-ls:
     runs-on: self-hosted   # this makes it run on eks-jumpserver-01
     steps:
-      - name: Checkout
+      - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: Run LS
-        run: ls -larth
+      - name: Build Spring Boot JAR and prepare folder
+        run: |
+          ./mvnw clean package -Pproduction
 
-      - name: Run Docker images
-        run: sudo docker images
+          rm -rf kpeiworldapp
+          mkdir kpeiworldapp
+          cd kpeiworldapp
+
+          cp ../Dockerfile .
+          cp ../target/*.jar .
+
+          ls -larth
