@@ -12,3 +12,6 @@ jobs:
 
       - name: Run LS
         run: ls -larth
+
+      - name: Run Docker images
+        run: sudo docker images
